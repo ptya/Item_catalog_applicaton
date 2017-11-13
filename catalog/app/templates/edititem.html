@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row add-bg">
+		<div class="col-xs-12">
+			<h1>Edit Item</h1>
+      <form class="form-group" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" value="{{item.name}}" name="title">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description:</label>
+          <textarea class="form-control" name="desc" rows="5" id=desc>{{item.description}}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="cat">Category:</label>
+          <select name="cat" class="form-control" id="cat">
+            {% for category in categories %}
+              {% if category.name == item.category %}
+                <option value="{{item.category}}" selected="selected">{{item.category}}</option>
+              {% else %}
+                <option value="{{category.name}}">{{category.name}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+				<div class="form-group">
+          <label for="img">Image:</label>
+          <input type="file" name="file" id="img" class="form-control">
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary">Edit</button>
+        <a onclick="window.history.back()" class="btn btn-default">Cancel</a>
+      </form>
+		</div>
+	</div>
+</div>
+{% endblock %}

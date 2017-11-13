@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row add-bg">
+		<div class="col-xs-12">
+			<h1 class="text-center">
+				Welcome, {{session['username']}}!
+				<img src="{{session['picture']}}" class="logon-img" />
+			</h1>
+			<p class="text-center" id="info">You will be redirected in 3 seconds..</p>
+			<script src="{{url_for('static', filename='js/login_success.js')}}">
+			</script>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

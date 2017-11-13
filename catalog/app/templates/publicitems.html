@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row add-bg">
+		<div class="col-xs-12 col-sm-4 col-md-3 divider">
+			<h1>Categories</h1>
+			<ul id="catNavContent" class="nav nav-pills nav-stacked nav-cat">
+				{% for category in categories %}
+					{% if name == category.name %}
+						<li class="active">
+					{% else %}
+						<li>
+					{% endif %}
+					<a href = "{{url_for('items.showItems', category_name = category.name )}}">
+						{{category.name}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<i id="leftArrow" class="fa fa-angle-left hidden"></i>
+			<i id="rightArrow" class="fa fa-angle-right right hidden"></i>
+		</div>
+		<div class="col-xs-12 col-sm-8 col-md-9">
+			{% if items !=[] %}
+			<h1>{{name}} ({{items|length}} items)</h1>
+			{% for i in items %}
+				<p class="item-list">
+					<a href = "{{url_for('items.showDescription', category_name = name, item_name = i.name.replace(' ','+'))}}">
+						<span class="">{{i.name}}</span>
+					</a>
+				</p>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endif %}
+{% endblock %}

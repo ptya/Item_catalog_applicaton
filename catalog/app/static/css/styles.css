@@ -1,0 +1,153 @@
+body {
+  background-color: #f8f8f8;
+  font-family: "Roboto", Helvetica, sans-serif;
+}
+
+p {
+  text-align: justify;
+}
+
+.add-bg {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-right: 8px;
+  max-width: 35px;
+}
+
+.category {
+  color: #808080;
+  font-style: italic;
+}
+
+.desc {
+  margin-top: 10px;
+}
+
+.divider {
+  border-right: 1px solid #ccc;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.image {
+  float: left;
+  margin: 0 10px 10px 0;
+  max-width: 200px;
+}
+
+.item-list {
+  margin: 2px 0 0 0;
+  padding: 10px 15px;
+}
+
+.logon-img {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 75px;
+}
+
+.main {
+  margin-top: 71px;
+}
+
+.navbar {
+  left: 0;
+  margin-bottom: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.navbar-color {
+  background-color: #72a8ad
+}
+
+.right {
+  float: right;
+}
+
+.white {
+  color: #fff !important;
+}
+
+/* Styling the arrow buttons for scrollbar */
+
+.fa {
+  bottom: 3.7rem;
+  color: #ccc;
+  color: rgba(204, 204, 204, 0.5);
+  font-size: 3rem;
+  position: relative;
+}
+
+.fa-angle-left {
+  left: -1rem;
+}
+
+.fa-angle-right {
+  right: -1rem;
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Turning the catalog selector into a horizontal scrollable navbar */
+
+  .divider {
+    border: 0;
+    height: 10rem;
+  }
+
+  .nav-cat {
+    margin: 0 1.5rem 0 1.5rem;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .nav-cat::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-cat>li {
+    border-right: 1px solid #ccc;
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
+    display: inline-block;
+  }
+
+  .nav-cat>li:last-child {
+    border-right: 0;
+  }
+
+  /* Making a compact view for mobile */
+
+  /* Remove space between content and alert */
+  .alert {
+    margin-bottom: 0;
+  }
+
+  /* Adjust content for sticky navbar */
+  .main {
+    margin-top: 51px;
+  }
+
+  .navbar-right {
+    float: right;
+  }
+
+  .login {
+    margin-top: 25px;
+    width: 200px;
+  }
+
+  .image {
+    max-width: 100px;
+  }
+}

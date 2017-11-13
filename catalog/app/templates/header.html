@@ -1,0 +1,11 @@
+<nav class="navbar navbar-default navbar-static-top navbar-color">
+  <div class="container">
+		<a class="navbar-brand white" href="{{url_for('items.showHome')}}">Catalog App</a>
+    {% if session['username'] %}
+		  <a class="btn btn-default navbar-btn navbar-right" href="{{url_for('users.disconnect')}}">Logout</a>
+      <img class="navbar-btn navbar-right avatar" src="{{session['picture']}}" alt="avatar">
+    {% else %}
+      <a class="btn btn-default navbar-btn navbar-right" href="{{url_for('users.showLogin')}}">Login</a>
+    {% endif %}
+	</div>
+</nav>

@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+				{% for category, message in messages %}
+					{% if category == 'info' %}
+						<div class = "flash alert alert-info alert-dismissable">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        			<span><strong>Info!</strong> {{ message }}</span><ul>
+						</div>
+					{% elif category == 'success' %}
+						<div class = "flash alert alert-success alert-dismissable">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<span><strong>Success!</strong> {{ message }}</span><ul>
+						</div>
+					{% elif category == 'error' %}
+						<div class = "flash alert alert-danger alert-dismissable">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<span><strong>Error!</strong> {{ message }}</span><ul>
+						</div>
+					{% endif %}
+				{% endfor %}
+      {% endif %}
+    {% endwith %}
+	</div>
+	<div class="row add-bg">
+		<div class="col-xs-12 col-sm-4 col-md-3 divider">
+			<h1>Categories</h1>
+			<ul id="catNavContent" class="nav nav-pills nav-stacked nav-cat">
+				{% for category in categories %}
+				<li>
+					<a href = "{{url_for('items.showItems', category_name = category.name )}}">
+						{{category.name}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<i id="leftArrow" class="fa fa-angle-left hidden"></i>
+			<i id="rightArrow" class="fa fa-angle-right right hidden"></i>
+		</div>
+		<div class="col-xs-12 col-sm-8 col-md-9">
+			<h1>Latest Items</h1>
+			{% for item in items %}
+				<p class="item-list">
+					<a href = "{{url_for('items.showDescription', category_name = item.category, item_name = item.name.replace(' ','+'))}}">
+						<span class="">{{item.name}}</span>
+						<span class="category">({{item.category}})</span>
+					</a>
+				</p>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

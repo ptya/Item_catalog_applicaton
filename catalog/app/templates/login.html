@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<script>
+window.appConfig = {
+	state: '{{ STATE }}',
+	csrf_token: '{{csrf_token()}}'
+}
+</script>
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+<div class="main container">
+	<div class="row" id="login">
+		<div class="col-xs-12 col-sm-4 text-center" id="goo">
+      <!-- GOOGLE PLUS SIGN IN BUTTON-->
+			<a id="goo-btn" class="btn btn-social btn-google login hidden">
+				<span class="fa fa-google"></span>Sign in with Google
+			</a>
+			<!--END GOOGLE PLUS SIGN IN BUTTON -->
+    </div>
+		<div class="col-xs-12 col-sm-4 text-center" id="fb">
+			<!--FACEBOOK SIGN IN BUTON  -->
+		  <a id="fb-btn" class="btn btn-social btn-facebook login hidden">
+		    <span class="fa fa-facebook"></span>Sign in with Facebook
+		  </a>
+		</div>
+			<!--END FACEBOOK SIGN IN BUTON  -->
+		<div class="col-xs-12 col-sm-4 text-center" id="gh">
+			<!--GITHUB SIGN IN BUTTON  -->
+			<a id="gh-btn" class="btn btn-social btn-github login">
+				<span class="fa fa-github"></span>Sign in with Github
+			</a>
+			<!--END GITHUB SIGN IN BUTTON  -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<p class="hidden add-bg text-center" id="status"></p>
+		</div>
+	</div>
+</div>
+<script src="//apis.google.com/js/platform.js?onload=initClient" async defer>
+</script>
+{% endblock %}

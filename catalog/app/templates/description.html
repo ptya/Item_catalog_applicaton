@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<div class = "flash alert alert-success alert-dismissable">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<span><strong>Success!</strong> {{ message }}</span>
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	</div>
+	<div class="row add-bg">
+		<div class="col-xs-12">
+			<h1>
+				{{item.name}}
+			</h1>
+			<a class="btn btn-primary" href="{{url_for('items.editItem', item_name = item.name.replace(' ','+'))}}">Edit</a>
+			<a class="btn btn-danger" href="{{url_for('items.deleteItem', item_name = item.name.replace(' ','+'))}}">Delete</a>
+			{% if item.image == None or item.image == '' %}
+				<img class="image" src="{{ url_for('static', filename='images/default/desc_default.png') }}" alt="image of item">
+			{% else %}
+				<img class="image" src="{{ url_for('static', filename='images/uploaded/%s' % item.image) }}" alt="image of {{item.name}}">
+			{% endif %}
+			<p class="desc">
+				<strong>Description:</strong>
+				{{item.description}}
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main container">
+	<div class="row add-bg">
+		<div class="col-xs-12">
+			<h1>{{item.name}}</h1>
+			{% if item.image == None %}
+				<img class="image" src="{{ url_for('static', filename='images/default/desc_default.png') }}" alt="image of default item">
+			{% else %}
+				<img class="image" src="{{ url_for('static', filename='images/uploaded/%s' % item.image) }}" alt="image of {{item.name}}">
+			{% endif %}
+			<p><strong>Description:</strong> {{item.description}}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
