@@ -4,7 +4,10 @@
 <script>
 window.appConfig = {
 	state: '{{ STATE }}',
-	csrf_token: '{{csrf_token()}}'
+	csrf_token: '{{csrf_token()}}',
+	goo_id: '{{GOO_ID}}',
+	fb_id: '{{FB_ID}}',
+	gh_id: '{{GH_ID}}'
 }
 </script>
 <script src="{{ url_for('static', filename='js/login.js') }}"></script>

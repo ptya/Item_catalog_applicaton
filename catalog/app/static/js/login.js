@@ -3,7 +3,7 @@ function initClient() {
   // Retrieve the singleton for the GoogleAuth library and set up the client.
   gapi.load('auth2', function() {
     auth2 = gapi.auth2.init({
-      client_id: '987428138379-gsssvuh4q34mk3m49kd0eksj78e8f04u.apps.googleusercontent.com',
+      client_id: appConfig.goo_id,
       cookiepolicy: 'single_host_origin',
     });
   });
@@ -52,7 +52,7 @@ function signInCallback(authResult) {
 // START of Facebook signin code
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '726775294199301',
+    appId      : appConfig.fb_id,
     cookie     : true,
     xfbml      : true,
     version    : 'v2.10'
@@ -120,7 +120,7 @@ $(document).ready(function() {
     $('.login').addClass('hidden');
     $('#status').removeClass('hidden');
     $('#status').html('Logging you in..');
-    window.location = `https://github.com/login/oauth/authorize?client_id=4e710c83b7e1d33b2d2f&redirect_uri=http://localhost:8000/ghconnect&scope=user&state=${appConfig.state}`;
+    window.location = `https://github.com/login/oauth/authorize?client_id=${appConfig.gh_id}&redirect_uri=http://localhost:8000/ghconnect&scope=user&state=${appConfig.state}`;
   });
 });
 // END of Github signin code

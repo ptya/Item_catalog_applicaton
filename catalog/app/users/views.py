@@ -122,7 +122,10 @@ def showLogin():
     state = ''.join(random.choice(
         string.ascii_uppercase + string.digits) for x in range(32))
     login_session['state'] = state
-    return render_template('login.html', STATE=state)
+    return render_template('login.html', STATE=state,
+                           GOO_ID=app.config['GOO_CLIENT_ID'],
+                           FB_ID=app.config['FB_CLIENT_ID'],
+                           GH_ID=app.config['GH_CLIENT_ID'])
 
 
 @users_blueprint.route('/login_success')
