@@ -47,7 +47,8 @@ For best experience, use [Google Chrome](https://www.google.com/chrome/browser/d
 2. Using your console `cd` into the repository's directory
 3. Use `vagrant up` :exclamation: __Note:__ this can take a few minutes
 4. The VM needs a restart once setup - use `vagrant halt` to stop the VM
-5. Finally, use `vagrant up` again to start the VM
+5. Use `vagrant up` again to start the VM
+6. Lastly, install Flask-WTF with `sudo pip install Flask-WTF`
 
 
 #### Application setup
@@ -74,7 +75,7 @@ In case you'd like to modify the DB items, edit `setup.py` file
 2. Start the VM using `vagrant up`
 3. SSH into your VM using `vagrant ssh`
 4. `cd` into the app folder as `/vagrant/catalog`
-5. Create the dummy DB using `python run.py`
+5. Launch the application using `python run.py`
 6. In your browser open http://localhost:8000/catalog
 
 
